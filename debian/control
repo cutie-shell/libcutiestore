@@ -1,0 +1,23 @@
+Source: libcutiestore
+Section: libs
+Maintainer: Erik Inkinen <erik.inkinen@erikinkinen.fi>
+Priority: optional
+Build-Depends: pkg-kde-tools,
+               cmake,
+               qt6-base-dev,
+               pkg-config,
+Standards-Version: 4.5.1
+
+Package: libcutiestore
+Architecture: any
+Multi-Arch: foreign
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: This package contains a data storage library for Cutie.
+
+Package: libcutiestore-dev
+Architecture: any
+Multi-Arch: foreign
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}, libcutiestore (= ${binary:Version})
+Description: This package contains a data storage library for Cutie. (Development headers)
