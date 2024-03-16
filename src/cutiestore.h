@@ -10,9 +10,11 @@
 class CutieStore : public QObject {
 	Q_OBJECT
 	Q_PROPERTY(QVariantMap data READ data WRITE setData NOTIFY dataChanged)
-	Q_PROPERTY(QString appName READ appName WRITE setAppName NOTIFY appNameChanged)
-	Q_PROPERTY(QString storeName READ storeName WRITE setStoreName NOTIFY storeNameChanged)
-public:
+	Q_PROPERTY(QString appName READ appName WRITE setAppName NOTIFY
+			   appNameChanged)
+	Q_PROPERTY(QString storeName READ storeName WRITE setStoreName NOTIFY
+			   storeNameChanged)
+    public:
 	CutieStore(QObject *parent = 0);
 	QVariantMap data();
 	void setData(QVariantMap data);
@@ -21,16 +23,16 @@ public:
 	QString storeName();
 	void setStoreName(QString storeName);
 
-Q_SIGNALS:
+    Q_SIGNALS:
 	void dataChanged(QVariantMap data);
 	void storeNameChanged(QString storeName);
 	void appNameChanged(QString appName);
 
-private Q_SLOTS:
+    private Q_SLOTS:
 	void onDataDirModified(QString filePath);
 	void onDataFileModified(QString filePath);
 
-private:
+    private:
 	void loadData();
 	void saveData();
 	void reload();
