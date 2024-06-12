@@ -103,19 +103,20 @@ void CutieStore::saveData()
 
 void CutieStore::reload()
 {
-	if (QDir(QDir(QStandardPaths::writableLocation(
+	QDir appDir(QDir(QStandardPaths::writableLocation(
 			      QStandardPaths::GenericDataLocation))
-			 .filePath(m_appName))
-		    .exists()) {
-		m_watcher.addPath(
-			QDir(QStandardPaths::writableLocation(
-				     QStandardPaths::GenericDataLocation))
-				.filePath(m_appName));
-		m_watcher.addPath(
-			QDir(QDir(QStandardPaths::writableLocation(
-					  QStandardPaths::GenericDataLocation))
-				     .filePath(m_appName))
-				.filePath(m_storeName + ".dat"));
-		loadData();
-	}
+			 .filePath(m_appName));
+	if (!appDir.exists())
+		appDir.mkpath(".");
+	
+	m_watcher.addPath(
+		QDir(QStandardPaths::writableLocation(
+					QStandardPaths::GenericDataLocation))
+			.filePath(m_appName));
+	m_watcher.addPath(
+		QDir(QDir(QStandardPaths::writableLocation(
+					QStandardPaths::GenericDataLocation))
+					.filePath(m_appName))
+			.filePath(m_storeName + ".dat"));
+	loadData();
 }
