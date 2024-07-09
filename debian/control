@@ -5,6 +5,7 @@ Priority: optional
 Build-Depends: pkg-kde-tools,
                cmake,
                qt6-base-dev,
+               qt6-declarative-dev,
                pkg-config,
 Standards-Version: 4.5.1
 
