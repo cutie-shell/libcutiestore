@@ -21,3 +21,10 @@ Multi-Arch: foreign
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}, libcutiestore (= ${binary:Version})
 Description: This package contains a data storage library for Cutie. (Development headers)
+
+Package: qml6-module-cutiestore
+Architecture: any
+Multi-Arch: foreign
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}, libcutiestore (= ${binary:Version})
+Description: This package contains a data storage library for Cutie. (QML module)
